@@ -2,12 +2,17 @@ from django.db import models
 from djmoney.models.fields import MoneyField
 # Create your models here.
 
+
 class Contact(models.Model):
     broker_name = models.CharField(max_length=50)
     broker_email = models.EmailField(max_length=254)
     broker_phone = models.CharField(max_length=12)
     broker_image = models.ImageField()
-    
+
+    def __str__(self):
+        return str(self.broker_name)
+
+
 class Listing(models.Model):
     listing_address = models.CharField(max_length=50)
     listing_price = MoneyField(decimal_places=2, default=0, default_currency='USD', max_digits=20)
@@ -28,3 +33,6 @@ class Listing(models.Model):
     Sold = 'Sold'
     LISTING_STATUS_CHOICES = [(Available, 'Available'), (Pending, 'Pending'), (Sold, 'Sold')]
     listing_availability = models.CharField(max_length=9, choices=LISTING_STATUS_CHOICES, default=LISTING_STATUS_CHOICES[0])
+
+    def __str__(self):
+        return str(self.listing_address)

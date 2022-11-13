@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'broker/main.css' %}">
+
+    {% if title %}
+        <title>Advance Real Estate - {{ title }}</title>
+    {% else %}
+        <title>Advance Real Estate</title>
+    {% endif %}
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="{% url 'index' %}" id="home">Home page</a>
+      <a href="{% url 'fun' %}" id="fun">Fun page</a>
+      <a href="#" id="third">Third page</a>
+      <a href="#" id="fourth">Fourth page</a>
+    </div>
+
+    <div style="text-indent: 50px">{% block content %}{% endblock %}</div>
+
+</body>
+</html>
