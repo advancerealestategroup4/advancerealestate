@@ -1,0 +1,10 @@
+{% extends "broker/base.html" %}
+{% block content %}
+    <body>
+        {% for contact in contacts %}
+            <h1>{{ contact.broker_name }}<br>Real Estate Broker</h1>
+            <p>My name is Madison Vance and I’m a real estate broker<br> in the Omaha area. I received my Bachelor’s Degree in<br>  Business from Creighton University. Since then I have<br> received my Real Estate Agent’s License, and gone on<br> to receive my Broker’s License.</p>
+            <p>Email: {{ contact.broker_email }}<br>Phone Number: {{ contact.broker_phone }}</p>
+        {% endfor %}
+    </body>
+{% endblock content %}
