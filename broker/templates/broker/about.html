@@ -1,10 +1,12 @@
 {% extends "broker/base.html" %}
 {% block content %}
-    <body>
+    <div style="padding-left: 50px">
         {% for contact in contacts %}
-            <h1>{{ contact.broker_name }}<br>Real Estate Broker</h1>
-            <p>My name is Madison Vance and I’m a real estate broker<br> in the Omaha area. I received my Bachelor’s Degree in<br>  Business from Creighton University. Since then I have<br> received my Real Estate Agent’s License, and gone on<br> to receive my Broker’s License.</p>
+            <img src="{{ contact.broker_image.url }}" style="width:250px; height:250px; float:left; margin-right: 30px">
+            <p><h1>{{ contact.broker_name }}<br>Real Estate Broker</h1>
+            <p>My name is Madison Vance, and I’m a real estate broker<br> in the Omaha area. I received my Bachelor’s Degree in<br>  Business from Creighton University. Since then, I have<br> received my Real Estate Agent’s License, and gone on<br> to receive my Broker’s License.</p>
             <p>Email: {{ contact.broker_email }}<br>Phone Number: {{ contact.broker_phone }}</p>
+            </p>
         {% endfor %}
-    </body>
+    </div>
 {% endblock content %}

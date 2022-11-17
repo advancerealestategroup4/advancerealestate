@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from django.views.generic import ListView, DetailView
 
 
 def index(request):
@@ -12,8 +13,18 @@ def about(request):
     return render(request, "broker/about.html", context)
 
 
-def browse(request):
-    return render(request, "broker/browse.html")
+#def browse(request):
+    #return render(request, "broker/browse.html")
+
+
+class PropertyListView(ListView):
+    model = Listing
+    template_name = 'broker/browse.html'
+    context_object_name = 'listings'
+
+
+class PropertyDetailView(DetailView):
+    model = Listing
 
 
 def fun(request):

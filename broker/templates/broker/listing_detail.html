@@ -1,0 +1,19 @@
+{% extends "broker/base.html" %}
+{% block content %}
+
+    <div style="float: left; margin-right: 20px">
+        <p><img src="{{ listing.listing_image2.url }}" style="width:150px; height:125px"></p>
+        <p><img src="{{ listing.listing_image3.url }}" style="width:150px; height:125px"></p>
+        <p><img src="{{ listing.listing_image4.url }}" style="width:150px; height:125px"></p>
+        <p><img src="{{ listing.listing_image5.url }}" style="width:150px; height:125px"></p>
+    </div>
+
+    <div style="padding-top: 60px">
+        <img src="{{ listing.listing_image1.url }}" style="width:600px; height:450px; float:left; margin-right: 30px">
+        <h1>{{ listing.listing_address }}<br>{{ listing.listing_features }}</h1>
+        <p>{{ listing.listing_price }}</p>
+        <p>{{ listing.listing_description }}</p>
+    </div>
+
+
+{% endblock content %}
