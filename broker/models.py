@@ -7,12 +7,12 @@ from django.urls import reverse
 
 
 class Contact(models.Model):
-    broker_name = models.CharField(max_length=50)
-    broker_email = models.EmailField(max_length=254)
-    broker_phone = models.CharField(max_length=12)
+    broker_name = models.CharField(max_length=50, blank=True, null=True)
+    broker_email = models.EmailField(max_length=254, blank=True, null=True)
+    broker_phone = models.CharField(max_length=12, blank=True, null=True)
     broker_image = models.ImageField(upload_to='broker_pic')
-    broker_address = models.CharField(max_length=50)
-    broker_website = models.CharField(max_length=50)
+    broker_address = models.CharField(max_length=50, blank=True, null=True)
+    broker_website = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return str(self.broker_name)
@@ -20,7 +20,7 @@ class Contact(models.Model):
 
 class Zipcode(models.Model):
     zipcode_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    zipcode_value = models.IntegerField(max_length=5)
+    zipcode_value = models.IntegerField()
 
     def __str__(self):
         return self.zipcode_value
@@ -52,7 +52,7 @@ class PriceRange(models.Model):
 
 class Listing(models.Model):
     listing_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    listing_number = models.IntegerField(max_length=50)
+    listing_number = models.IntegerField()
     listing_street = models.CharField(max_length=50)
     listing_city = models.CharField(max_length=50)
     listing_state = models.CharField(max_length=2)
