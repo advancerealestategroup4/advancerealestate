@@ -20,7 +20,7 @@ class Contact(models.Model):
 
 class Zipcode(models.Model):
     zipcode_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    zipcode_value = models.IntegerField()
+    zipcode_value = models.CharField(max_length=5)
 
     def __str__(self):
         return self.zipcode_value
@@ -64,8 +64,13 @@ class Listing(models.Model):
     listing_price = MoneyField(decimal_places=2, default=0, default_currency='USD', max_digits=20)
     listing_description = models.TextField(max_length=300)
     listing_features = models.CharField(max_length=200)
-    listing_featured_flag = models.BinaryField
-    listing_visible_flag = models.BinaryField
+
+    Yes = 'Yes'
+    No = 'No'
+    FLAG_STATUS_CHOICES = [(Yes, 'Yes'), (No, 'No')]
+
+    listing_featured_flag = models.CharField(max_length=3, choices=FLAG_STATUS_CHOICES, default=FLAG_STATUS_CHOICES[1])
+    listing_visible_flag = models.CharField(max_length=3, choices=FLAG_STATUS_CHOICES, default=FLAG_STATUS_CHOICES[1])
 
 #    listing_address = models.CharField(max_length=50)
 #    listing_type = models.CharField(max_length=50)
@@ -87,7 +92,7 @@ class Listing(models.Model):
     listing_availability = models.CharField(max_length=9, choices=LISTING_STATUS_CHOICES, default=LISTING_STATUS_CHOICES[0])
 
     def get_absolute_url(self):
-        return reverse('details', args=[self.id])
+        return reverse('details', args=[str(self.listing_id)])
 
     def __str__(self):
         return str(self.listing_id)
