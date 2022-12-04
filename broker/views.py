@@ -28,7 +28,7 @@ class PropertyDetailView(DetailView):
 
 
 class PropertyImageView(DetailView):
-    model = ListingImages
+    model = ListingImage
 
 
 def fun(request):
