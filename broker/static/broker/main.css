@@ -55,3 +55,9 @@ a.link {
   display: table;
 }
 
+#sidebar {
+  width: 20%;
+  padding: 10px;
+  margin: 0;
+  float: left;
+  }
