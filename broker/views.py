@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import *
 from django.views.generic import ListView, DetailView
 
 
 def index(request):
-    return render(request, "broker/index.html")
+    data = {'listings': Listing .objects.filter(is_featured=True)}
+    return render(request, "broker/index.html", data)
 
 
 def about(request):
@@ -25,10 +25,6 @@ class PropertyListView(ListView):
 
 class PropertyDetailView(DetailView):
     model = Listing
-
-
-class PropertyImageView(DetailView):
-    model = ListingImages
 
 
 def fun(request):

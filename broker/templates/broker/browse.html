@@ -1,64 +1,14 @@
 {% extends "broker/base.html" %}
 {% block content %}
-{% load static %}
-
     <body>
-        <section id="sidebar" style="width: 20%; float: left; background-color: #F2F2F2;">
-            <h3>Filter</h3>
-                <h4>Price Range</h4>
-                        <input type="checkbox" id="100k-150k">
-                        <label for="100k-150k">100k-150k</label> <br>
-                        <input type="checkbox" id="150k-200k">
-                        <label for="150k-200k">150k-200k</label> <br>
-                        <input type="checkbox" id="200k-250k">
-                        <label for="200k-250k">200k-250k</label> <br>
-                        <input type="checkbox" id="250k-300k">
-                        <label for="250k-300k">250k-300k</label> <br>
-                        <input type="checkbox" id="300k+">
-                        <label for="300k+">300k+</label> <br>
-
-                        <h4>Home Type</h4>
-                                <input type="checkbox" id="townhouse">
-                                <label for="townhouse">Townhouse</label> <br>
-                                <input type="checkbox" id="singlefamily">
-                                <label for="singlefamily">Single-Family</label> <br>
-                                <input type="checkbox" id="semidetached">
-                                <label for="semidetached">Semi-Detached</label> <br>
-                                <input type="checkbox" id="multifamily">
-                                <label for="multifamily">Multi-Family</label> <br>
-                                <input type="checkbox" id="apartment">
-                                <label for="apartment">Apartment</label> <br>
-
-                        <h4>Neighborhood</h4>
-                        <datalist id="neighborhood">
-                            <option>First option</option>
-                            <option>Second Option</option>
-                        </datalist>
-                        <input  autoComplete="on" list="neighborhood"/> 
-
-                        <h4>Zip Code</h4>
-                        <datalist id="zipcode">
-                            <option>First option</option>
-                            <option>Second Option</option>
-                        </datalist>
-                        <input  autoComplete="on" list="zipcode"/> 
-                        
-                        <br> <br>
-
-                        <button> Submit </button>
-        </section>
         <h1 style="text-align: center">Welcome to the Listings page</h1>
         <ul class="list-group-horizontal">
             {% for listing in listings %}
                 <li style="display: inline-block; padding: 30px 40px">
-<<<<<<< HEAD
                     <img src="{{ listing.listing_image1.url }}" style="width:300px; height:250px; float:left; margin-right: 30px">
-                    <span>{{ listing.listing_address }}<br>{{ listing.listing_features }}<br>{{ listing.listing_neighborhood}}<br>{{ listing.listing_price }}</span>
-=======
-                    <img src="{{ ListingImages.listing_image1.url }}" style="width:300px; height:250px; float:left; margin-right: 30px">
-                    <span>{{ listing.listing_number }}{{ listing.listing_street }}<br>{{ listing.listing_features }}<br>{{ listing.listing_price }}</span>
->>>>>>> 988ee83772c80da14d2a5d3893e64ff7b3bf096d
-                    <p style="padding-top: 120px"><a class="link" href={{ listing.get_absolute_url }}>View Property</a></p>
+                    <span>{{ listing.listing_address }}<br>{{ listing.listing_features }}<br>{{ listing.listing_price }}</span>
+                    <h3 class="label info">{{ listing.listing_availability }}</h3>
+                    <p style="padding-top: 90px"><a class="link" href={{ listing.get_absolute_url }}>View Property</a></p>
                 </li>
             {% endfor %}
         </ul>

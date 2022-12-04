@@ -7,6 +7,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
    # path('browse/', views.browse, name='browse'),
     path('browse/', PropertyListView.as_view(), name='browse'),
-    path(r'^details/(?P<pk>[0-9]+)\\Z', PropertyDetailView.as_view(), name='details'),
+    path('details/<int:pk>', PropertyDetailView.as_view(), name='details'),
     path('fun/', views.fun, name='fun'),
 ]
