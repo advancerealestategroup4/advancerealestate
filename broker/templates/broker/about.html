@@ -2,10 +2,10 @@
 {% block content %}
     <div style="padding-left: 50px">
         {% for contact in contacts%}
-            <img src="{{ contact.broker_image.url }}" style="width:250px; height:250px; float:left; margin-right: 30px">
+            <img src="{{ contact.broker_image.url }}" style="width:300px; height:300px; float:left; margin-right: 30px">
             <p><h1>{{ contact.broker_name }}<br>Real Estate Broker</h1>
             <p>My name is Madison Vance, and I’m a real estate broker<br> in the Omaha area. I received my Bachelor’s Degree in<br>  Business from Creighton University. Since then, I have<br> received my Real Estate Agent’s License, and gone on<br> to receive my Broker’s License.</p>
-            <p>Email: {{ contact.broker_email }}<br>Phone Number: {{ contact.broker_phone }}</p>
+            <p>Email: {{ contact.broker_email }}<br>Phone Number: {{ contact.broker_phone }}<br>Address: {{ contact.broker_address }}<br> Website: {{ contact.broker_website }}</p>
             </p>
         {% endfor %}
     </div>

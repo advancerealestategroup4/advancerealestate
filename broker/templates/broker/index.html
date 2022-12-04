@@ -3,5 +3,16 @@
     <body>
         <h1 style="text-align: center">Welcome</h1>
         <p style="text-align: center">Welcome to AdVance Real Estates! We are committed to helping you find your perfect fit here in Omaha.<br>Feel free to browse any properties and explore some of the features that the city of Omaha has to offer.<br>Please make sure to reach out to a broker if you have any questions or want to know more about a property!</p>
+
+
+        <div style="padding-top: 60px">
+            <h1 style="text-align: center">Featured Property</h1>
+            <img src="{{ ListingImages.listing_image1.url }}" alt="featured property" class="center">
+            <h1>{{ listing.listing_number}}{{listing.listing_street }}</h1>
+            <p>{{ listing.listing_price }}</p>
+        </div>
+
+
+
     </body>
 {% endblock content %}
