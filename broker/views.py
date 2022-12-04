@@ -27,6 +27,10 @@ class PropertyDetailView(DetailView):
     model = Listing
 
 
+class PropertyImageView(DetailView):
+    model = ListingImages
+
+
 def fun(request):
     return render(request, "broker/fun.html")
 
