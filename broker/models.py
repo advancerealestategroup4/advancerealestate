@@ -90,6 +90,11 @@ class Listing(models.Model):
     Sold = 'Sold'
     LISTING_STATUS_CHOICES = [(Available, 'Available'), (Pending, 'Pending'), (Sold, 'Sold')]
     listing_availability = models.CharField(max_length=9, choices=LISTING_STATUS_CHOICES, default=LISTING_STATUS_CHOICES[0])
+    listing_image1 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image2 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image3 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image4 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image5 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('details', args=[str(self.listing_id)])
@@ -98,10 +103,6 @@ class Listing(models.Model):
         return str(self.listing_id)
 
 
-class ListingImage(models.Model):
-    listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    listing_image1 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
-    listing_image2 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
-    listing_image3 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
-    listing_image4 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
-    listing_image5 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+#class ListingImage(models.Model):
+#    listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE)
+
