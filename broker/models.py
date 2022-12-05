@@ -51,7 +51,7 @@ class PriceRange(models.Model):
 
 
 class Listing(models.Model):
-    listing_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    listing_id = models.CharField(max_length=50, primary_key=True, default=uuid.uuid4, editable=True)
     listing_number = models.IntegerField(max_length=50, blank=True, null=True, default='')
     listing_street = models.CharField(max_length=50, blank=True, null=True, default='')
     listing_city = models.CharField(max_length=50, blank=True, null=True, default='')
@@ -63,7 +63,7 @@ class Listing(models.Model):
 
     listing_price = MoneyField(decimal_places=2, default=0, default_currency='USD', max_digits=20)
     listing_description = models.TextField(max_length=300, blank=True, null=True, default='')
-    #listing_features = models.CharField(max_length=200, blank=True, null=True, default='')
+#   listing_features = models.CharField(max_length=200, blank=True, null=True, default='')
 
     Yes = 'Yes'
     No = 'No'

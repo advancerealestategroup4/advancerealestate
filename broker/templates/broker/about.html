@@ -1,12 +1,29 @@
 {% extends "broker/base.html" %}
 {% block content %}
+
     <div style="padding-left: 50px">
-        {% for contact in contacts%}
-            <img src="{{ contact.broker_image.url }}" style="width:300px; height:300px; float:left; margin-right: 30px">
+        {% for contact in contacts %}
+            <img src="{{ contact.broker_image.url }}" style="width:250px; height:250px; float:left; margin-right: 30px">
             <p><h1>{{ contact.broker_name }}<br>Real Estate Broker</h1>
             <p>My name is Madison Vance, and I’m a real estate broker<br> in the Omaha area. I received my Bachelor’s Degree in<br>  Business from Creighton University. Since then, I have<br> received my Real Estate Agent’s License, and gone on<br> to receive my Broker’s License.</p>
             <p>Email: {{ contact.broker_email }}<br>Phone Number: {{ contact.broker_phone }}<br>Address: {{ contact.broker_address }}<br> Website: {{ contact.broker_website }}</p>
             </p>
         {% endfor %}
+
+        <div style="padding-top: 50px">
+            <h2>Contact Broker</h2>
+            <form action="/action_page.php">
+                <input type="text" id="fname" name="name" placeholder="Enter name" required><br>
+
+                <input type="text" id="email" name="email" placeholder="Email Address" required>
+
+                <input type="text" id="number" name="number" placeholder="Phone Number" required><br>
+
+                <textarea rows="4" cols="50" name="comment"> Message to Broker </textarea><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
     </div>
 {% endblock content %}

@@ -1,20 +1,39 @@
 {% extends "broker/base.html" %}
 {% block content %}
 
-    <div style="float: left; margin-right: 20px">
-        <p><img src="{{ ListingImages.listing_image2.url }}" style="width:150px; height:125px"></p>
-        <p><img src="{{ ListingImages.listing_image3.url }}" style="width:150px; height:125px"></p>
-        <p><img src="{{ ListingImages.listing_image4.url }}" style="width:150px; height:125px"></p>
-        <p><img src="{{ ListingImages.listing_image5.url }}" style="width:150px; height:125px"></p>
-    </div>
+    <div style="padding-left: 50px; padding-right: 50px">
+        <div style="float: left; margin-right: 20px">
+            <p><img src="{{ ListingImage.listing_image2.url }}" style="width:150px; height:125px"></p>
+            <p><img src="{{ ListingImage.listing_image3.url }}" style="width:150px; height:125px"></p>
+            <p><img src="{{ ListingImage.listing_image4.url }}" style="width:150px; height:125px"></p>
+            <p><img src="{{ ListingImage.listing_image5.url }}" style="width:150px; height:125px"></p>
+        </div>
 
-    <div style="padding-top: 60px">
-        <img src="{{ ListingImages.listing_image1.url }}" style="width:600px; height:450px; float:left; margin-right: 30px">
-        <h1>{{ listing.listing_number }}{{ listing.listing_street }}
+        <div style="padding-top: 60px">
+                    <img src="{{ listingImage.listing_image1.url }}" style="width:600px; height:450px; float:left; margin-right: 30px">
+                    <h1>{{ listing.listing_price }}</h1>
+                    <h1>{{ listing.listing_number }}  {{ listing.listing_street }}</h1>
+                    <p>{{ listing.listing_city }},   {{ listing.listing_state }}    {{ listing.listing_zipcode }}</p>
+                    <p>{{ listing.listing_description }}</p>
+                </div>
 
-        <p>{{ listing.listing_price }}</p>
-        <p>{{ listing.listing_description }}</p>
-    </div>
+                <div style="padding-top: 300px">
+                    <h2>Contact Broker</h2>
+                    <form action="/action_page.php">
+                        <input type="text" id="fname" name="name" placeholder="Enter name" required><br>
+
+                        <input type="text" id="email" name="email" placeholder="Email Address" required>
+
+                        <input type="text" id="number" name="number" placeholder="Phone Number" required><br>
+
+                        <input type="text" id="subject" name="subject" placeholder={{ listing.listing_id }} required><br>
+
+                        <textarea rows="4" cols="50" name="comment"> Message to Broker </textarea><br><br>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
 
 
 {% endblock content %}
