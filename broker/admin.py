@@ -7,7 +7,7 @@ from .models import Zipcode
 from .models import Neighborhood
 from .models import HomeType
 from .models import PriceRange
-from .models import ListingImages
+from .models import ListingImage
 
 admin.site.register(Contact)
 admin.site.register(Listing)
@@ -15,4 +15,4 @@ admin.site.register(Zipcode)
 admin.site.register(Neighborhood)
 admin.site.register(HomeType)
 admin.site.register(PriceRange)
-admin.site.register(ListingImages)
+admin.site.register(ListingImage)

@@ -34,13 +34,15 @@
                             <option>First option</option>
                             <option>Second Option</option>
                         </datalist>
-                        <input  autoComplete="on" list="neighborhood"/> 
+
+                        <input  autoComplete="on" list="neighborhood"/>
 
                         <h4>Zip Code</h4>
                         <datalist id="zipcode">
                             <option>First option</option>
                             <option>Second Option</option>
                         </datalist>
+
                         <input  autoComplete="on" list="zipcode"/> 
                         
                         <br> <br>
@@ -51,14 +53,12 @@
         <ul class="list-group-horizontal">
             {% for listing in listings %}
                 <li style="display: inline-block; padding: 30px 40px">
-<<<<<<< HEAD
-                    <img src="{{ listing.listing_image1.url }}" style="width:300px; height:250px; float:left; margin-right: 30px">
-                    <span>{{ listing.listing_address }}<br>{{ listing.listing_features }}<br>{{ listing.listing_neighborhood}}<br>{{ listing.listing_price }}</span>
-=======
-                    <img src="{{ ListingImages.listing_image1.url }}" style="width:300px; height:250px; float:left; margin-right: 30px">
-                    <span>{{ listing.listing_number }}{{ listing.listing_street }}<br>{{ listing.listing_features }}<br>{{ listing.listing_price }}</span>
->>>>>>> 988ee83772c80da14d2a5d3893e64ff7b3bf096d
+
+                    <img src="{{ listing_image.listing_image1.url }}" style="width:300px; height:250px; float:left; margin-right: 30px">
+                    <span>{{ listing.listing_number }}{{ listing.listing_street }}<br>{{ listing.listing_price }}</span>
+                    <h3 class="label info">{{ listing.listing_availability }}</h3>
                     <p style="padding-top: 120px"><a class="link" href={{ listing.get_absolute_url }}>View Property</a></p>
+
                 </li>
             {% endfor %}
         </ul>

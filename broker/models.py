@@ -20,7 +20,7 @@ class Contact(models.Model):
 
 class Zipcode(models.Model):
     zipcode_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    zipcode_value = models.CharField(max_length=5)
+    zipcode_value = models.CharField(max_length=5, blank=True, null=True)
 
     def __str__(self):
         return self.zipcode_value
@@ -28,7 +28,7 @@ class Zipcode(models.Model):
 
 class Neighborhood(models.Model):
     neighborhood_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    neighborhood_value = models.CharField(max_length=50)
+    neighborhood_value = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return self.neighborhood_value
@@ -36,7 +36,7 @@ class Neighborhood(models.Model):
 
 class HomeType(models.Model):
     type_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    type_value = models.CharField(max_length=50)
+    type_value = models.CharField(max_length=50, blank=True, null=True, default='')
 
     def __str__(self):
         return self.type_value
@@ -44,26 +44,26 @@ class HomeType(models.Model):
 
 class PriceRange(models.Model):
     range_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    range_value = models.CharField(max_length=50)
+    range_value = models.CharField(max_length=50, blank=True, null=True, default='')
 
     def __str__(self):
         return self.range_value
 
 
 class Listing(models.Model):
-    listing_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    listing_number = models.IntegerField()
-    listing_street = models.CharField(max_length=50)
-    listing_city = models.CharField(max_length=50)
-    listing_state = models.CharField(max_length=2)
+    listing_id = models.CharField(max_length=50, primary_key=True, default=uuid.uuid4, editable=True)
+    listing_number = models.IntegerField(max_length=50, blank=True, null=True, default='')
+    listing_street = models.CharField(max_length=50, blank=True, null=True, default='')
+    listing_city = models.CharField(max_length=50, blank=True, null=True, default='')
+    listing_state = models.CharField(max_length=2, blank=True, null=True, default='')
     listing_zipcode = models.ForeignKey(Zipcode, on_delete=models.PROTECT)
     listing_neighborhood = models.ForeignKey(Neighborhood, on_delete=models.PROTECT)
     listing_type = models.ForeignKey(HomeType, on_delete=models.PROTECT)
     listing_range = models.ForeignKey(PriceRange,  on_delete=models.PROTECT)
 
     listing_price = MoneyField(decimal_places=2, default=0, default_currency='USD', max_digits=20)
-    listing_description = models.TextField(max_length=300)
-    listing_features = models.CharField(max_length=200)
+    listing_description = models.TextField(max_length=300, blank=True, null=True, default='')
+#   listing_features = models.CharField(max_length=200, blank=True, null=True, default='')
 
     Yes = 'Yes'
     No = 'No'
@@ -98,10 +98,10 @@ class Listing(models.Model):
         return str(self.listing_id)
 
 
-class ListingImages(models.Model):
+class ListingImage(models.Model):
     listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    listing_image1 = models.ImageField(default='default.jpg', upload_to='listing_pic')
-    listing_image2 = models.ImageField(default='default.jpg', upload_to='listing_pic')
-    listing_image3 = models.ImageField(default='default.jpg', upload_to='listing_pic')
-    listing_image4 = models.ImageField(default='default.jpg', upload_to='listing_pic')
-    listing_image5 = models.ImageField(default='default.jpg', upload_to='listing_pic')
+    listing_image1 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image2 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image3 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image4 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
+    listing_image5 = models.ImageField(default='default.jpg', upload_to='listing_pic', blank=True, null=True)
