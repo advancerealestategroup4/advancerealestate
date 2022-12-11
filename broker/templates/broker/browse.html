@@ -61,10 +61,6 @@
                 </li>
             {% endfor %}
         </ul>
-        <form action="/browse/" method='GET'>
-            {% csrf_token %}
-            <input type='submit' name="q"/>
-        </form>
 
     </body>
 {% endblock content %}
