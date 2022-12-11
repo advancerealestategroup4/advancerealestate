@@ -19,7 +19,7 @@
 
                 <div style="padding-top: 300px">
                     <h2>Contact Broker</h2>
-            <form method="post">
+            <form action="{% url 'success' %}"method="post">
                 {% csrf_token %}
                 <input type="text" id="fname" name="name" placeholder="Enter name" required><br>
 
@@ -27,7 +27,7 @@
 
                         <input type="text" id="number" name="number" placeholder="Phone Number" required><br>
 
-                        <textarea rows="4" cols="50" name="comment"> Message to Broker </textarea><br><br>
+                        <textarea rows="4" cols="50" name="message"> Message to Broker </textarea><br><br>
                 <input type="submit"/>
             </form>
                 </div>

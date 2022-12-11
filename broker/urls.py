@@ -10,6 +10,7 @@ urlpatterns = [
     path('browse/', PropertyListView.as_view(), name='browse'),
     path(r'^details/(?P<pk>[0-9]+)\\Z', PropertyDetailView.as_view(), name='details'),
     path('fun/', views.fun, name='fun'),
+    path('success/', views.success, name='success'),
 
 
 
