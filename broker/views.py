@@ -17,7 +17,7 @@ def index(request):
 
 
 def about(request):
-    # context = {'contacts': Contact.objects.all()}
+    context = {'contacts': Contact.objects.all()}
     if request.method == 'POST':
         message = request.POST['message']
         email = request.POST['email']
@@ -27,8 +27,8 @@ def about(request):
                   email,
                   ['minhvuvlbay@gmail.com'],
                   fail_silently=True)
-        return render(request, "broker/success.html")
-    return render(request, "broker/about.html")
+        return render(request, "broker/success.html", context)
+    return render(request, "broker/about.html", context)
 
 
 # def browse(request):
